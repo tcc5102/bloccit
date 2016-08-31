@@ -1,10 +1,20 @@
 require 'random_data'
 
+# Create Topics
+15.times do
+  Topic.create!(
+    name:         RandomData.random_sentence,
+    description:  RandomData.random_paragraph
+  )
+end
+topics = Topic.all
+
 # Create Posts
 50.times do
   Post.create!(
-    title:  RandomData.random_sentence,
-    body:   RandomData.random_paragraph
+    topic: topics.sample,
+    title: RandomData.random_sentence,
+    body:  RandomData.random_paragraph
   )
 end
 posts = Post.all
@@ -12,7 +22,6 @@ posts = Post.all
 # Create Comments
 100.times do
   Comment.create!(
-    # #4
     post: posts.sample,
     body: RandomData.random_paragraph
   )
@@ -32,6 +41,7 @@ asmt_post = Post.find_or_create_by(title: "title for assignment", body: "body fo
 asmt_comment = Comment.find_or_create_by(post: asmt_post, body: "comment body")
 
 puts "Seed finished"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Question.count} questions created"
