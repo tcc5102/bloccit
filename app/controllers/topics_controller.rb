@@ -5,6 +5,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @all_posts = @topic.sponsored_posts.order("RANDOM()").take(2) | @topic.posts
   end
 
   def new
