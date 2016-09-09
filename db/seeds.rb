@@ -57,14 +57,32 @@ end
   )
 end
 
+# Create Advertisements
+20.times do
+  Advertisement.create!(
+    title: RandomData.random_sentence,
+    copy:  RandomData.random_paragraph,
+    price: 99
+  )
+end
+
+# Create an admin user
+admin = User.create!(
+  name:     'Admin User',
+  email:    'admin@example.com',
+  password: 'helloworld',
+  role:     'admin'
+)
+
+# Create a member
+member = User.create!(
+  name:     'Member User',
+  email:    'member@example.com',
+  password: 'helloworld'
+)
 
 asmt_post = Post.find_or_create_by(title: "title for assignment", body: "body for assignment")
 asmt_comment = Comment.find_or_create_by(post: asmt_post, body: "comment body")
-user = User.first
-user.update_attributes!(
-  email: 'tyler.cooper91@gmail.com', # replace this with your personal email
-  password: 'helloworld'
-)
 
 puts "Seed finished"
 puts "#{User.count} users created"
@@ -73,3 +91,4 @@ puts "#{Post.count} posts created"
 puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Comment.count} comments created"
 puts "#{Question.count} questions created"
+puts "#{Advertisement.count} advertisements created"
