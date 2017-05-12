@@ -18,11 +18,39 @@
 @import "bootstrap";
 
 .user-info {
-  margin-top: 5px;
+  margin-top: 10px;
   margin-left: 5px;
   display: inline-block;
 }
 
 .nav {
   margin-top: 5px;
+}
+
+.gravatar {
+  padding-right: 5px;
+}
+
+.glyphicon-chevron-up:hover {
+  color: green;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.glyphicon-chevron-up:visited {
+  color: green;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.glyphicon-chevron-down:hover {
+  color: red;
+  text-decoration: none;
+  border: 1px solid black;
+}
+
+.glyphicon-chevron-down:visited {
+  color: red;
+  text-decoration: none;
+  border: 1px solid black;
 }
